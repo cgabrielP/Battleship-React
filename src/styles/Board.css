@@ -29,3 +29,47 @@
   grid-template-rows: repeat(10, 30px);
   gap: 1px;
 }
+.ship-selector {
+  display: grid;
+  margin: 10px;
+  gap: 8px;
+}
+/* Resto de estilos existentes... */
+
+/* Nuevos estilos para el selector de tipo de barco y el selector de orientación */
+.ship-selector-container {
+    
+    align-items: center;
+  }
+  
+  /* Estilos para los botones del selector de tipo de barco */
+  .ship-selector button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .ship-selector button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos para los botones del selector de orientación */
+  .orientation-selector button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .orientation-selector button:hover {
+    background-color: #0056b3;
+
+  }
+  
+  /* Resto de estilos existentes... */
+  
