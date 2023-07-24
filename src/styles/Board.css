@@ -1,7 +1,7 @@
 .square {
   width: 30px;
   height: 30px;
-  border: 1px solid #000;
+  border: 1px solid #d1cdcd;
   background-color: white;
 }
 .ship-1 {
@@ -24,6 +24,7 @@
 }
 
 .board {
+  margin: 20px;
   display: grid;
   grid-template-columns: repeat(10, 30px);
   grid-template-rows: repeat(10, 30px);
@@ -34,42 +35,57 @@
   margin: 10px;
   gap: 8px;
 }
-/* Resto de estilos existentes... */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
 
 /* Nuevos estilos para el selector de tipo de barco y el selector de orientación */
 .ship-selector-container {
-    
-    align-items: center;
-  }
-  
-  /* Estilos para los botones del selector de tipo de barco */
-  .ship-selector button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .ship-selector button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Estilos para los botones del selector de orientación */
-  .orientation-selector button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .orientation-selector button:hover {
-    background-color: #0056b3;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 20px;
+}
 
-  }
-  
-  /* Resto de estilos existentes... */
-  
+/* Estilos para los botones del selector de tipo de barco */
+.ship-selector button {
+  padding: 7px 20px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+
+}
+
+
+
+/* Estilos para los botones del selector de orientación */
+.orientation-selector {
+  display: grid;
+  margin: 10px;
+  gap: 8px;
+}
+.orientation-selector button {
+  padding: 7px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.orientation-selector button:hover {
+  background-color: #0056b3;
+}
+.reset {
+  display: flex;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  justify-content: center;
+}
+/* Resto de estilos existentes... */
