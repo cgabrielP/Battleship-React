@@ -2,10 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import '../styles/Board.css'
 // Componente para un cuadro 
 function BoardSquare({ isShip, shipSize, onClick, rowIndex, columnIndex, isRevealed, isRival }) {
+
     const shipClass = (isShip ? `ship-${shipSize}` : '');
-    const content = isRevealed ? (isShip ? 'X' : '') : '';
+    const content = isRevealed ? (isShip ? '🔥' : '') : '';
 
     const handleClick = () => {
+
+        console.log(!isRevealed)
         if (!isRevealed) {
             onClick(rowIndex, columnIndex);
         }
@@ -158,7 +161,7 @@ export default function Board() {
             }
             setBoardData(updatedBoard);
             setPlacedShips([...placedShips, selectedShipSize]);
-            
+
             if (placedShips.length === 4) {
                 setIsPlacingShips(false)
                 console.log(isPlacingShips);
@@ -193,22 +196,24 @@ export default function Board() {
         setIsVertical((prev) => !prev);
     };
     const attackRival = (rowIndex, columnIndex) => {
-        if (!rivalBoardData[rowIndex][columnIndex].isRevealed) {
-          const updatedRivalBoard = [...rivalBoardData];
-          updatedRivalBoard[rowIndex][columnIndex] = true;
-          setRivalBoardData(updatedRivalBoard);
-    
-          // Aquí puedes verificar si el ataque fue un HIT o un MISS y realizar cualquier acción adicional necesaria
-          const cellValue = rivalBoardData[rowIndex][columnIndex].shipSize;
-          if (cellValue !== 0) {
-            alert('HIT! ¡Has impactado un barco enemigo!');
-          } else {
+        const cell = rivalBoardData[rowIndex][columnIndex];
+        console.log(cell)
+        if (cell === 0) {
             alert('MISS. No has alcanzado ningún barco enemigo.');
-          }
-        } else {
-          alert('Ya has atacado esta celda antes.');
+        } else if (cell === 6) {
+            alert('Ya has atacado esta celda antes.');
         }
-      };
+        else if (cell !== 0) {
+            setRivalBoardData((prevBoard) => {
+                const updatedRivalBoard = [...prevBoard];
+                updatedRivalBoard[rowIndex][columnIndex] = 6;
+                return updatedRivalBoard;
+            });
+
+            alert('HIT! ¡Has impactado un barco enemigo!');
+        }
+
+    };
     return (
         <>
             <div className='container'>
